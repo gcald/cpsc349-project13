@@ -10,7 +10,7 @@ $(document).ready(function (){
           var id = data[i].id;
          
           var f_title = `<h2 data-posts="title">${title}</h2>`;
-          var f_body = `<p data-posts="body">${body}</p>`;
+          var f_body = `<p data-posts="body">${body.replace(/\n/g, "<br>")}</p>`;
           var f_id = `<button data-posts="id" value="${id}" type="button">Show comments</button>`;
          
           $("body").append("<article>");
