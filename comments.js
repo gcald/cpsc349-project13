@@ -25,10 +25,8 @@ $(document).ready(function (){
 (function (window) {
   $(document).on('click', ':button', function(){
     var loaded = false;
-    var hidden = true;
     var btnValue = this.value;
     if(!loaded){
-      console.log(loaded);
       loaded = true;
       fetch(`https://jsonplaceholder.typicode.com/comments?postId=${this.value}`)
       .then(res => res.json())
@@ -46,11 +44,6 @@ $(document).ready(function (){
         }
       });
     }
-
-    if(hidden){
-      $(`#comments-${this.value}`).attr("hidden", false);
-    } else {
-      $(`#comments-${this.value}`).attr("hidden", true);
-    }
+    $(`#comments-${btnValue}`).toggle();
   });
 })(window);
